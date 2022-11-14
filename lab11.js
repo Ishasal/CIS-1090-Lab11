@@ -20,7 +20,7 @@ words = words.map( function(word){
 // Declare an empty object 
 let lookup = {};
 
-// Loop through all the words
+// Loop through all the words 
 for ( let i = 0; i < words.length; i++ ){
     let word = words[i];
 
@@ -37,21 +37,23 @@ for ( let i = 0; i < words.length; i++ ){
     lookup[firstLetter].push(word);
 }
 
-// 💬
+// The for loops is used to check if the firstLetter is in the object lookup. 
+// It returns a boolean value.
 for ( firstLetter in lookup ){
    let entry = lookup[firstLetter];
 
-   // 💬
+   // The filter function creates a new array, using the index.Of function and returns the first index at which a given element 
+   //can be found in the array, or -1 if it is not present.
    entry = entry.filter((item, index) => entry.indexOf(item) === index);
 
-   // 💬
+   // Sorting out the words in the entry array
    entry = entry.sort();
 
-   // 💬
+   // first value of lookup is reassigned for the new entry
    lookup[firstLetter] = entry;
 }
 
-// 💬
+// Uses a for loop to sort the property names in the lookup object and returns it.
 for ( letter of Object.keys(lookup).sort() ){
     console.log(letter, lookup[letter]);
 }
